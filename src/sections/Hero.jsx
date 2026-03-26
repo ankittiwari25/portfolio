@@ -4,10 +4,18 @@
  * Fullscreen luxury hero with background image, overlay, and CTAs
  */
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
 const Hero = () => {
+  const { scrollY } = useScroll()
+  const backgroundY = useTransform(scrollY, [0, 400], [0, 120])
+  const auroraY = useTransform(scrollY, [0, 400], [0, 60])
+  const sheenX = useSpring(useTransform(scrollY, [0, 500], [-120, 80]), {
+    stiffness: 70,
+    damping: 18,
+  })
+
   const scrollToProjects = () => {
     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -26,7 +34,7 @@ const Hero = () => {
       className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <motion.div className="absolute inset-0" style={{ y: backgroundY }}>
         <img
           src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop"
           alt="Luxury Interior"
@@ -34,6 +42,47 @@ const Hero = () => {
         />
         {/* Dark Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+        {/* Moving light sweep */}
+        <motion.div
+          aria-hidden
+          className="hero-sheen"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.35 }}
+          transition={{ duration: 1.8, delay: 0.6 }}
+          style={{ x: sheenX }}
+        />
+      </motion.div>
+
+      {/* Ambient aurora glow */}
+      <motion.div
+        aria-hidden
+        className="luxury-aurora"
+        style={{ y: auroraY }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.55 }}
+        transition={{ duration: 1.2, delay: 0.8 }}
+      />
+
+      {/* Floating sparkles */}
+      <div className="hero-sparkles" aria-hidden>
+        {[...Array(7)].map((_, i) => (
+          <motion.span
+            key={i}
+            className="hero-sparkle"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: [0.1, 0.6, 0.3], scale: [0.8, 1.1, 0.9] }}
+            transition={{
+              duration: 4 + i * 0.2,
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: 'easeInOut',
+            }}
+            style={{
+              top: `${15 + i * 10}%`,
+              left: `${10 + i * 12}%`,
+            }}
+          />
+        ))}
       </div>
 
       {/* Content */}

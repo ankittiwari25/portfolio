@@ -58,8 +58,23 @@ const ServiceCard = ({ service, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
+      whileHover={{ y: -8, rotateX: 1, rotateY: -1 }}
+      whileTap={{ scale: 0.99 }}
       className="group relative flex h-full flex-col overflow-hidden card-luxury"
     >
+      <div className="luxury-card-glow" aria-hidden />
+      <motion.div
+        aria-hidden
+        className="luxury-card-sheen"
+        initial={false}
+        animate={{ x: ['-120%', '120%'] }}
+        transition={{
+          duration: 2,
+          ease: 'easeInOut',
+          repeat: Infinity,
+          repeatDelay: 3,
+        }}
+      />
       {/* Content */}
       <div className="card-body">
         {/* Icon */}

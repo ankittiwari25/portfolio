@@ -52,13 +52,15 @@ const SectionTitle = ({
       {/* Divider */}
       <motion.div
         initial={{ width: 0 }}
-        whileInView={{ width: 80 }}
+        whileInView={{ width: 96 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className={`h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mt-6 ${
+        transition={{ duration: 0.9, delay: 0.3 }}
+        className={`luxury-divider mt-6 ${
           align === 'center' ? 'mx-auto' : align === 'right' ? 'ml-auto' : ''
         }`}
-      />
+      >
+        <span className="luxury-divider__glow" />
+      </motion.div>
 
       {/* Description */}
       {description && (
