@@ -1,0 +1,488 @@
+/* Custom Fonts - loaded via preconnect in HTML */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ========================================
+   SHRADDHA PANDEY INTERIOR DESIGN
+   Premium Luxury Portfolio Website
+   ======================================== */
+
+/* CSS Custom Properties */
+:root {
+  --color-primary: #000000;
+  --color-secondary: #D4AF37;
+  --color-gold-light: #E8D5A3;
+  --color-gold-dark: #B8962E;
+  --color-bg-cream: #FAF8F5;
+  --color-bg-warm: #F5F1EB;
+  --color-text-dark: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-cream);
+  color: var(--color-text-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+/* Utility Classes */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.text-gold {
+  color: var(--color-secondary);
+}
+
+.bg-gold {
+  background-color: var(--color-secondary);
+}
+
+.bg-cream {
+  background-color: var(--color-bg-cream);
+}
+
+.bg-warm {
+  background-color: var(--color-bg-warm);
+}
+
+/* Gold Gradient Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #F5E6A3 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, #D4AF37 0%, #B8962E 100%);
+  color: #000000;
+  padding: 16px 32px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #E8D5A3 0%, #D4AF37 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #D4AF37;
+  padding: 16px 32px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 1px solid #D4AF37;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.btn-secondary:hover {
+  background: #D4AF37;
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+/* Service Cards */
+.card-luxury {
+  background: linear-gradient(180deg, #ffffff 0%, #faf5ec 100%);
+  border: 1px solid rgba(232, 213, 163, 0.55);
+  border-radius: 18px;
+  min-height: 380px;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.card-luxury:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.12);
+  border-color: #d4af37;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 22px;
+  padding: 30px 32px;
+}
+
+@media (min-width: 768px) {
+  .card-body {
+    padding: 36px 40px;
+  }
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0d0d0d;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Testimonials */
+.testimonial-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 32px 34px;
+  background: radial-gradient(120% 120% at 10% 10%, rgba(212, 175, 55, 0.08) 0%, rgba(15, 15, 15, 0.92) 35%, #0a0a0a 100%);
+  border: 1px solid rgba(244, 210, 111, 0.4);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+  color: #f5f2ea;
+  overflow: hidden;
+}
+
+.testimonial-card--active {
+  border-color: #f4d26f;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(244, 210, 111, 0.25);
+}
+
+.testimonial-quote {
+  position: absolute;
+  right: 28px;
+  top: 24px;
+  color: rgba(244, 210, 111, 0.2);
+  pointer-events: none;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.testimonial-pill {
+  background: rgba(244, 210, 111, 0.12);
+  color: #f4d26f;
+  border: 1px solid rgba(244, 210, 111, 0.25);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.testimonial-text {
+  font-family: var(--font-body);
+  color: #e6e2d9;
+  line-height: 1.7;
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+.testimonial-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.testimonial-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f4d26f;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.testimonial-nav-btn {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(244, 210, 111, 0.35);
+  color: #f4d26f;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+.testimonial-nav-btn:hover {
+  background: #f4d26f;
+  color: #0b0905;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
+}
+
+/* Project category pills */
+.tab-pill {
+  position: relative;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  color: #5b5145;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.tab-pill:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  color: #111;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+}
+
+.tab-pill--active {
+  background: linear-gradient(135deg, #0f0f0f, #1a1208);
+  color: #f4d26f;
+  border-color: rgba(244, 210, 111, 0.6);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+.tab-pill--active::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  padding: 1px;
+  background: linear-gradient(90deg, rgba(244, 210, 111, 0.8), rgba(212, 175, 55, 0.6));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Image Overlay */
+.img-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-overlay:hover::after {
+  opacity: 1;
+}
+
+/* Divider */
+.divider-gold {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  margin: 20px auto;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #FAF8F5 25%, #F0EBE3 50%, #FAF8F5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Subtle Float Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Line Animation */
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 80px; }
+}
+
+/* Responsive Container */
+.container-luxury {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container-luxury {
+    padding: 0 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-luxury {
+    padding: 0 64px;
+  }
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 120px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 160px 0;
+  }
+}
+
+/* Masonry Grid */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 24px;
+}
+
+/* Form Styles */
+input, textarea {
+  font-family: var(--font-body);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+}
+
+/* WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+}
+
+/* Scroll to Top */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.scroll-top:hover {
+  background: var(--color-secondary);
+  transform: translateY(-4px);
+}
