@@ -174,15 +174,9 @@ const Projects = ({ onProjectClick }) => {
 
                     {/* Content */}
                     <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                      <span className="font-body text-xs uppercase tracking-wider text-[#D4AF37] mb-2">
+                      <span className="font-body text-sm uppercase tracking-wider text-white font-medium">
                         {project.category}
                       </span>
-                      <h3 className="font-heading text-xl md:text-2xl text-white mb-2">
-                        {project.title}
-                      </h3>
-                      <p className="font-body text-sm text-gray-300">
-                        {project.location}
-                      </p>
                     </div>
                   </div>
 
