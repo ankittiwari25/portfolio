@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import SectionTitle from '../components/SectionTitle'
 
-const categories = ['All', 'Living Room', 'Bedroom', 'Kitchen', 'Dining Area']
+const categories = ['All', 'Living Room', 'Bedroom', 'Kitchen', 'Dining Area', 'Commercial']
 
 // Generate one card per image for all categories
 const livingRoomImages = Array.from({ length: 18 }, (_, i) => `/images/living-room/living-${i + 1}.jpg`)
@@ -32,6 +32,8 @@ const bedroomImages = [
 const kitchenImages = Array.from({ length: 8 }, (_, i) => `/images/kitchen/kitchen-${i + 1}.jpg`)
 
 const diningImages = Array.from({ length: 8 }, (_, i) => `/images/dining/dining-${i + 1}.jpg`)
+
+const commercialImages = Array.from({ length: 48 }, (_, i) => `/images/commercial/commercial-${i + 1}.jpg`)
 
 const projects = [
   ...livingRoomImages.map((img, i) => ({
@@ -77,6 +79,17 @@ const projects = [
     area: '180 sq.ft',
     description: 'A refined dining area designed for memorable gatherings. Warm tones, elegant lighting, and premium furniture create the perfect ambiance for dining.',
     features: ['Custom dining table', 'Statement lighting', 'Premium upholstery', 'Ambient lighting'],
+  })),
+  ...commercialImages.map((img, i) => ({
+    id: `cm-${i + 1}`,
+    title: `Commercial Design ${i + 1}`,
+    category: 'Commercial',
+    image: img,
+    location: 'Ahmedabad, Gujarat',
+    year: '2024',
+    area: '1200 sq.ft',
+    description: 'A thoughtfully designed commercial space that balances brand identity with functionality. Premium finishes, smart layouts, and striking aesthetics create a lasting impression.',
+    features: ['Brand-aligned design', 'Optimised floor plan', 'Premium finishes', 'Statement lighting'],
   })),
 ]
 
