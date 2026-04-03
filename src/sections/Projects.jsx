@@ -8,97 +8,76 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import SectionTitle from '../components/SectionTitle'
 
-const categories = ['All', 'Living Room', 'Bedroom', 'Kitchen', 'Full Home']
+const categories = ['All', 'Living Room', 'Bedroom', 'Kitchen', 'Dining Area']
+
+// Generate one card per image for all categories
+const livingRoomImages = Array.from({ length: 18 }, (_, i) => `/images/living-room/living-${i + 1}.jpg`)
+
+const bedroomImages = [
+  '/images/bedroom/master-bedroom-1.png',
+  '/images/bedroom/master-bedroom-2.png',
+  '/images/bedroom/master-bedroom-3.png',
+  '/images/bedroom/kids-bedroom-1.png',
+  '/images/bedroom/kids-bedroom-2.png',
+  '/images/bedroom/kids-bedroom-3.png',
+  '/images/bedroom/bedroom-3.jpg',
+  ...Array.from({ length: 7 }, (_, i) => `/images/bedroom/bedroom-img-${i + 1}.jpg`),
+  ...Array.from({ length: 12 }, (_, i) => `/images/bedroom/bedroom-ambaji-${i + 1}.jpg`),
+  '/images/bedroom/bedroom-site1-1.jpg',
+  '/images/bedroom/bedroom-site1-2.jpg',
+  '/images/bedroom/bedroom-site1-3.jpg',
+  ...Array.from({ length: 15 }, (_, i) => `/images/bedroom/bedroom-site3-${i + 1}.jpg`),
+]
+
+const kitchenImages = Array.from({ length: 8 }, (_, i) => `/images/kitchen/kitchen-${i + 1}.jpg`)
+
+const diningImages = Array.from({ length: 8 }, (_, i) => `/images/dining/dining-${i + 1}.jpg`)
 
 const projects = [
-  {
-    id: 1,
-    title: 'Modern Minimalist Living',
+  ...livingRoomImages.map((img, i) => ({
+    id: `lr-${i + 1}`,
+    title: `Living Room Design ${i + 1}`,
     category: 'Living Room',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop',
+    image: img,
     location: 'Ahmedabad, Gujarat',
     year: '2024',
     area: '450 sq.ft',
-    description: 'A contemporary living space featuring clean lines, neutral tones, and carefully curated furniture. The design emphasizes open space and natural light, creating a serene atmosphere for relaxation and entertainment.',
+    description: 'A contemporary living space featuring clean lines, neutral tones, and carefully curated furniture. The design emphasizes open space and natural light.',
     features: ['Custom furniture design', 'Ambient lighting system', 'Premium flooring', 'Bespoke wall art'],
-  },
-  {
-    id: 2,
-    title: 'Luxury Master Suite',
+  })),
+  ...bedroomImages.map((img, i) => ({
+    id: `br-${i + 1}`,
+    title: `Bedroom Design ${i + 1}`,
     category: 'Bedroom',
-    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=2400&auto=format&fit=crop',
+    image: img,
     location: 'Mumbai, Maharashtra',
     year: '2024',
-    area: '350 sq.ft',
-    description: 'An opulent master bedroom that combines comfort with sophistication. Featuring a custom headboard, ambient lighting, and premium textiles that create a sanctuary for rest and rejuvenation.',
-    features: ['Custom headboard design', 'Walk-in wardrobe', 'En-suite bathroom', 'Smart home integration'],
-  },
-  {
-    id: 3,
-    title: 'Contemporary Kitchen Design',
+    area: '320 sq.ft',
+    description: 'A luxurious bedroom design combining comfort with sophistication. Premium textiles, thoughtful lighting, and custom elements create a perfect sanctuary for rest.',
+    features: ['Custom headboard design', 'Walk-in wardrobe', 'Ambient lighting', 'Premium finishes'],
+  })),
+  ...kitchenImages.map((img, i) => ({
+    id: `kt-${i + 1}`,
+    title: `Kitchen Design ${i + 1}`,
     category: 'Kitchen',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=2400&auto=format&fit=crop',
+    image: img,
     location: 'Bangalore, Karnataka',
     year: '2023',
     area: '200 sq.ft',
-    description: 'A state-of-the-art modular kitchen with Italian finishes and German hardware. Designed for efficiency without compromising on style, featuring ample storage and premium appliances.',
-    features: ['Modular cabinets', 'Quartz countertops', 'Premium appliances', 'Smart storage solutions'],
-  },
-  {
-    id: 4,
-    title: 'Elegant Penthouse',
-    category: 'Full Home',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2400&auto=format&fit=crop',
+    description: 'A state-of-the-art modular kitchen with premium finishes and hardware. Designed for efficiency without compromising on style, with ample storage solutions.',
+    features: ['Modular cabinets', 'Quartz countertops', 'Premium appliances', 'Smart storage'],
+  })),
+  ...diningImages.map((img, i) => ({
+    id: `da-${i + 1}`,
+    title: `Dining Area Design ${i + 1}`,
+    category: 'Dining Area',
+    image: img,
     location: 'Delhi, NCR',
     year: '2024',
-    area: '2500 sq.ft',
-    description: 'A complete penthouse transformation featuring open-concept living, premium materials throughout, and panoramic city views. Every room tells a story of luxury and refined taste.',
-    features: ['Open-concept design', 'Custom millwork', 'Premium materials', 'Panoramic views'],
-  },
-  {
-    id: 5,
-    title: 'Serene Bedroom Retreat',
-    category: 'Bedroom',
-    image: 'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2400&auto=format&fit=crop',
-    location: 'Pune, Maharashtra',
-    year: '2023',
-    area: '280 sq.ft',
-    description: 'A tranquil bedroom design focused on creating a peaceful retreat. Soft color palette, natural textures, and thoughtful lighting design ensure restful nights.',
-    features: ['Soft color palette', 'Natural textures', 'Blackout curtains', 'Reading nook'],
-  },
-  {
-    id: 6,
-    title: 'Open Living Concept',
-    category: 'Living Room',
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2400&auto=format&fit=crop',
-    location: 'Hyderabad, Telangana',
-    year: '2024',
-    area: '600 sq.ft',
-    description: 'An expansive living and dining area with seamless flow and contemporary design. Floor-to-ceiling windows flood the space with natural light.',
-    features: ['Floor-to-ceiling windows', 'Custom dining table', 'Integrated storage', 'Art installation'],
-  },
-  {
-    id: 7,
-    title: 'Modern Family Home',
-    category: 'Full Home',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2400&auto=format&fit=crop',
-    location: 'Surat, Gujarat',
-    year: '2023',
-    area: '1800 sq.ft',
-    description: 'A family-friendly home design that balances style with functionality. Child-safe materials, durable finishes, and clever storage solutions throughout.',
-    features: ['Child-safe design', 'Durable finishes', 'Play area', 'Home office space'],
-  },
-  {
-    id: 8,
-    title: 'Chef\'s Dream Kitchen',
-    category: 'Kitchen',
-    image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=2400&auto=format&fit=crop',
-    location: 'Chennai, Tamil Nadu',
-    year: '2024',
-    area: '250 sq.ft',
-    description: 'A professional-grade kitchen designed for culinary enthusiasts. Features commercial-grade appliances, extensive prep space, and premium ventilation.',
-    features: ['Commercial appliances', 'Large island', 'Premium ventilation', 'Wine storage'],
-  },
+    area: '180 sq.ft',
+    description: 'A refined dining area designed for memorable gatherings. Warm tones, elegant lighting, and premium furniture create the perfect ambiance for dining.',
+    features: ['Custom dining table', 'Statement lighting', 'Premium upholstery', 'Ambient lighting'],
+  })),
 ]
 
 const Projects = ({ onProjectClick }) => {
@@ -152,7 +131,7 @@ const Projects = ({ onProjectClick }) => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.4, delay: Math.min(index * 0.03, 0.5) }}
                 className="masonry-item"
               >
                 <div

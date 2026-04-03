@@ -36,7 +36,7 @@ const Hero = () => {
       {/* Background Image */}
       <motion.div className="absolute inset-0" style={{ y: backgroundY }}>
         <img
-          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop"
+          src="/images/living-room/living-3.jpg"
           alt="Luxury Interior"
           className="w-full h-full object-cover"
         />

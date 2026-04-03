@@ -41,7 +41,7 @@ const About = () => {
             {/* Main Image */}
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2400&auto=format&fit=crop"
+                src="/images/bedroom/master-bedroom-3.png"
                 alt="Shraddha Pandey - Interior Designer"
                 className="w-full aspect-[4/5] object-cover"
               />

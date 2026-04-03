@@ -94,18 +94,40 @@ const Navbar = () => {
               ))}
 
               {/* CTA Button */}
-              <motion.a
-                href="#contact"
-                onClick={(e) => scrollToSection(e, '#contact')}
+              <motion.div
+                className="relative ml-4"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="ml-4 px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#B8962E] text-black text-sm font-medium uppercase tracking-wider hover:shadow-lg hover:shadow-[#D4AF37]/30 transition-all duration-300"
               >
-                Get Consultation
-              </motion.a>
+                {/* Pulsing ring 1 */}
+                <motion.span
+                  aria-hidden
+                  className="absolute inset-0 border border-[#D4AF37]"
+                  animate={{ scale: [1, 1.25], opacity: [0.6, 0] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
+                />
+                {/* Pulsing ring 2 — offset */}
+                <motion.span
+                  aria-hidden
+                  className="absolute inset-0 border border-[#D4AF37]"
+                  animate={{ scale: [1, 1.25], opacity: [0.4, 0] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut', delay: 0.6 }}
+                />
+                <motion.a
+                  href="#contact"
+                  onClick={(e) => scrollToSection(e, '#contact')}
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                  className={`relative block px-6 py-3 border text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
+                    isScrolled
+                      ? 'border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black'
+                      : 'border-white/80 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]'
+                  }`}
+                >
+                  Get Consultation
+                </motion.a>
+              </motion.div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -175,7 +197,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="mt-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B8962E] text-black text-center text-sm font-medium uppercase tracking-wider"
+                  className="mt-8 py-4 border border-[#D4AF37] text-[#D4AF37] text-center text-sm font-medium uppercase tracking-wider hover:bg-[#D4AF37] hover:text-black transition-all duration-300"
                 >
                   Get Consultation
                 </motion.a>
