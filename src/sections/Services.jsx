@@ -12,6 +12,7 @@ import {
   Sofa,
   Bed,
   Building2,
+  Briefcase,
 } from 'lucide-react'
 import ServiceModal from '../components/ServiceModal'
 
@@ -212,6 +213,46 @@ const services = [
       '/images/dining/dining-3.jpg',
     ],
   },
+  {
+    icon: Briefcase,
+    title: 'Commercial Interior Design',
+    description:
+      'Striking commercial spaces that reflect your brand, impress your clients, and inspire your team — designed for impact and built to perform.',
+    image: '/images/commercial/commercial-1.jpg',
+    fullDescription:
+      'We design commercial interiors that go beyond aesthetics — every space is planned to support your brand identity, workflow efficiency, and client experience. From offices and showrooms to retail outlets and hospitality spaces, we deliver environments that make a lasting impression and stand the test of time.',
+    includes: [
+      'Brand & vision alignment session',
+      'Space planning & zoning',
+      'Custom furniture & fixture design',
+      'Flooring, ceiling & wall finishes',
+      'Commercial-grade lighting design',
+      'Signage & branding integration',
+      'MEP coordination & vendor management',
+      'Turnkey execution & handover',
+    ],
+    process: [
+      { title: 'Brief & Discovery', desc: 'Understanding your brand, team, and business goals.' },
+      { title: 'Concept Presentation', desc: '3D renders, material board, and layout for approval.' },
+      { title: 'Design Development', desc: 'Detailed drawings, BOQ, and vendor finalisation.' },
+      { title: 'Execution', desc: 'On-site project management with milestone tracking.' },
+      { title: 'Handover', desc: 'Punch list, final inspection, and handover.' },
+    ],
+    gallery: [
+      '/images/commercial/commercial-1.jpg',
+      '/images/commercial/commercial-2.jpg',
+      '/images/commercial/commercial-3.jpg',
+      '/images/commercial/commercial-4.jpg',
+      '/images/commercial/commercial-5.jpg',
+      '/images/commercial/commercial-6.jpg',
+      '/images/commercial/commercial-7.jpg',
+      '/images/commercial/commercial-8.jpg',
+      '/images/commercial/commercial-9.jpg',
+      '/images/commercial/commercial-10.jpg',
+      '/images/commercial/commercial-11.jpg',
+      '/images/commercial/commercial-12.jpg',
+    ],
+  },
 ]
 
 const ServiceCard = ({ service, index, onLearnMore }) => {
@@ -330,8 +371,8 @@ const Services = () => {
             ))}
           </div>
 
-          {/* Services Grid — Row 2: 2 cards centered */}
-          <div className="grid md:grid-cols-2 auto-rows-fr gap-6 md:gap-8 lg:w-2/3 lg:mx-auto" style={{ marginBottom: '40px' }}>
+          {/* Services Grid — Row 2: 3 cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-6 md:gap-8" style={{ marginBottom: '40px' }}>
             {services.slice(3).map((service, index) => (
               <ServiceCard key={service.title} service={service} index={index + 3} onLearnMore={setActiveService} />
             ))}
