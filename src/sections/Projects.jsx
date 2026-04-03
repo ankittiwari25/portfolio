@@ -11,7 +11,7 @@ import SectionTitle from '../components/SectionTitle'
 const categories = ['All', 'Living Room', 'Bedroom', 'Kitchen', 'Dining Area', 'Commercial']
 
 // Generate one card per image for all categories
-const livingRoomImages = Array.from({ length: 18 }, (_, i) => `/images/living-room/living-${i + 1}.jpg`)
+const livingRoomImages = Array.from({ length: 37 }, (_, i) => `/images/living-room/living-${i + 1}.jpg`)
 
 const bedroomImages = [
   '/images/bedroom/master-bedroom-1.png',
@@ -27,11 +27,12 @@ const bedroomImages = [
   '/images/bedroom/bedroom-site1-2.jpg',
   '/images/bedroom/bedroom-site1-3.jpg',
   ...Array.from({ length: 15 }, (_, i) => `/images/bedroom/bedroom-site3-${i + 1}.jpg`),
+  ...Array.from({ length: 37 }, (_, i) => `/images/bedroom/bedroom-new-${i + 1}.jpg`),
 ]
 
-const kitchenImages = Array.from({ length: 8 }, (_, i) => `/images/kitchen/kitchen-${i + 1}.jpg`)
+const kitchenImages = Array.from({ length: 14 }, (_, i) => `/images/kitchen/kitchen-${i + 1}.jpg`)
 
-const diningImages = Array.from({ length: 8 }, (_, i) => `/images/dining/dining-${i + 1}.jpg`)
+const diningImages = Array.from({ length: 16 }, (_, i) => `/images/dining/dining-${i + 1}.jpg`)
 
 const commercialImages = Array.from({ length: 48 }, (_, i) => `/images/commercial/commercial-${i + 1}.jpg`)
 
